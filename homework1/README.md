@@ -7,83 +7,125 @@ Before testing these expressions in the console, predict what their output will 
 
 
 **a)** `"1" == 1`
+
 predicted: true
+
 actual: true
+
 why:
 Equality operator in combo. with JS's type conversion means that JS sees these as equal
 
 **b)** `"1" === 1`
+
 predicted: false
+
 actual: false
+
 why:
 Identity operator does not see different types as equal
 
 **c)** `true == "true"`
+
 predicted: true
+
 actual: false
+
 (got it incorrect)
+
 why:
 
 
 **d)** `false== ""`
+
 predicted: true
+
 actual: true
+
 why:
 Empty string is falsey, as is false. But why is above false, then?
 
 **e)** `x++ == ++x`
+
 predicted: false
+
 actual: false
+
 why:
 x = 2;
 first it does x++, but x is unchanged. x++ increments but does not return a new value for x, whereas ++x increments but also immediately returns a new value for x.
 
 **f)** `++x == x++`
+
 predicted: true
+
 actual: true
+
 why: ?? halp
 
 **g)** `"1"+x == 1+x`
+
 predicted: false
+
 actual: false
+
 why:
 Whatever comes last takes precdence, so it tries to evaluate everything as numbers (?)
 
 **h)** `"0"+1 == 1`
+
 predicted: true
+
 actual: true
+
 why:
 Converts "0" string to number as number comes last, and so then 0+1 == 1
 
 **i)** `(typeof (x+1))==(typeof x)`
+
 predicted: false
+
 actual: true
+
 (got it wrong)
+
 why:
 I guess because x+1 is always evaluated first, and x determines what the expression is evaluated as (string or number), and so the left side is always whatever typeof x is, and the right side naturall is as well
 
 **j)** `(x-=x)? x: (typeof x)`
+
 predicted: number
+
 actual: number
+
 why:
 surprise, this is a ternary operater. If the first statement ()? is true, the part before : is evaluated. Otherwise, the part after : is evaluated. x-=x is false (but why...I mean...x-= => x = x - 1, but what's that other x on there?), so part two is evaluated, and the typeof x is a number.
 
 **k)** `(x*1 == x) || ((typeof x) != "number")`
+
 predicted: true
+
 actual: true
+
 why:
 x*1 == x is always true, so it's true regardless of next statement
 
 **l)** `(x=(typeof (x+(typeof x))))==x`
+
 predicted: true?
+
 actual: true!
+
 why:
 The whole left is an assignment operator, so x always is equal and identical to x because x is assigned on the left.
 
 **m)** `x=-1,0,-x---1+'0'+x`
+
 predicted: -1
+
 actual: "00-2"
+
 (got it wrong)
+
 why:
 Oh. x = -1 is just an assignment. Then, two expressions separated by commas; JS only cares about last statement. Still don't get what's going on in last statement, though.
 
@@ -95,6 +137,7 @@ You may want to use functions, loops, and/or arrays to store repeated elements.
 (Hint: within any string, '\n' creates a line break.)
 
 [Solution](homework-1-prob-2.js)
+
 [Scratch Work/Iteration](homework-1-prob-2-scratch.js)
 
 ---
