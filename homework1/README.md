@@ -136,9 +136,9 @@ Write a program which generates a string containing the entire lyrics for the so
 You may want to use functions, loops, and/or arrays to store repeated elements.
 (Hint: within any string, '\n' creates a line break.)
 
-[Solution](homework-1-prob-2.js)
+[Solution](homework1-prob2.js)
 
-[Scratch Work/Iteration](homework-1-prob-2-scratch.js)
+[Scratch Work/Iteration](homework1-prob2-scratch.js)
 
 ---
 
@@ -165,7 +165,9 @@ You've just realized that your effort was doomed: neither of your functions can 
 Write a function to decide whether a given integer (a parameter) is prime. You may need one of these functions/operators:
 
 * function `Math.floor(N)` truncates any fractional part of a number N (i.e. returns greatest integer <=N)
-* modulo operator %: `x%y` returns 0 if x divides evenly by y 
+* modulo operator %: `x%y` returns 0 if x divides evenly by y
+
+[Solution](homework1-prob4.js)
 
 ---
 
