@@ -14,6 +14,8 @@ function toRoman(num) {
         var tens = Math.round(((num/10) - Math.floor((num/10)))*100);
         var hundreds = Math.round(((num/10) - Math.floor((num/10)))*1000);
         console.log(fourPlaces(num)+threePlaces(hundreds)+twoPlaces(tens)+oneToTen(ones));
+    } else {
+        console.log("Sorry, the Romans either didn't count that far, or you did not enter a valid number.");
     }
     //ones
     function oneToTen(a){
