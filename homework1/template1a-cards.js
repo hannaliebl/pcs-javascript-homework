@@ -3,19 +3,172 @@
 // function()--> possible return values
 
 function rank(card) { // --> 1..13
+    if (((card+1)*0.25) <= 13 && ((card+1)*0.25) >= 12.25) {
+        console.log("rank is 13");
+        return 13
+    } else if (((card+1)*0.25) <= 12 && ((card+1)*0.25) >= 11.25) {
+        console.log("rank is 12");
+        return 12
+    } else if (((card+1)*0.25) <= 11 && ((card+1)*0.25) >= 10.25) {
+        console.log("rank is 11");
+        return 11
+    } else if (((card+1)*0.25) <= 10 && ((card+1)*0.25) >= 9.25) {
+        console.log("rank is 10");
+        return 10
+    } else if (((card+1)*0.25) <= 9 && ((card+1)*0.25) >= 8.25) {
+        console.log("rank is 9");
+        return 9
+    } else if (((card+1)*0.25) <= 8 && ((card+1)*0.25) >= 7.25) {
+        console.log("rank is 8");
+        return 8
+    } else if (((card+1)*0.25) <= 7 && ((card+1)*0.25) >= 6.25) {
+        console.log("rank is 7");
+        return 7
+    } else if (((card+1)*0.25) <= 6 && ((card+1)*0.25) >= 5.25) {
+        console.log("rank is 6");
+        return 6
+    } else if (((card+1)*0.25) <= 5 && ((card+1)*0.25) >= 4.25) {
+        console.log("rank is 5");
+        return 5
+    } else if (((card+1)*0.25) <= 4 && ((card+1)*0.25) >= 3.25) {
+        console.log("rank is 4");
+        return 4
+    } else if (((card+1)*0.25) <= 3 && ((card+1)*0.25) >= 2.25) {
+        console.log("rank is 3");
+        return 3
+    } else if (((card+1)*0.25) <= 2 && ((card+1)*0.25) >= 1.25) {
+        console.log("rank is 2");
+        return 2
+    } else if (((card+1)*0.25) <= 1 && ((card+1)*0.25) >= 0.25) {
+        console.log("rank is 1");
+        return 1
+    } else {
+        return false
+    }
 }
 
-function suit(card) { // --> 1..4
+rank(0); //1
+rank(19); //5
+rank(44); //12
+
+function suit(card) {
+    if (card === 0) {
+        console.log("suit is hearts");
+        return 1
+    } else if ((card % 2) === 0) {
+        //hearts or spades
+        if ((card % 4) === 0) {
+            return 1
+            console.log("suit is hearts");
+        } else {
+            return 3
+            console.log("suit is spades.");
+        }
+    } else if ((card % 2) != 0) {
+        if (((card + 1) % 4) === 0) {
+            return 4
+            console.log("suit is clubs.");
+        } else {
+            return 2
+            console.log("suit is diamonds.")
+        }
+    } else {
+        console.log("incorrect card submission");
+        return false
+    }
 }
 
-function cardID(rank,suit) { // --> 0..51
+suit(0); //hearts
+suit(5); //diamonds
+suit(18); //spades
+suit(23); //clubs
+suit(51); // clubs
+suit(41); //diamonds
+
+function cardID(rank, suit) { // --> 0..51
+    var lowRange = 4 * (rank - 1);
+    var id = lowRange + (suit - 1);
+    console.log(id);
+    return id
 }
+
+cardID(1, 1); // 0
+cardID(13, 4); // 51
+cardID(5, 2); // 17
+cardID(3, 3); // 10
 
 function color(card) { // -->"red","black"
+    var cardSuit = suit(card);
+    console.log("card suit is", cardSuit);
+    if ((cardSuit === 1) || (cardSuit === 2)) {
+        console.log("card is red");
+        return "red"
+    } else {
+        console.log("card is black");
+        return "black"
+    }
 }
 
-function name(card) { // --> string
+color(0); //red
+color(51); //black
+color(17); //red
+color(38); //black
+
+function callSuit(card) { //silliness, but name(); doesn't work without this, for some reason
+    return suit(card)
 }
+
+callSuit(13);
+
+function name(card) { // --> string
+    var preNumber = rank(card);
+    var preSuit = callSuit(card);
+    if (preNumber === 13) {
+        var number = "King";
+    } else if (preNumber === 12) {
+        var number = "Queen";
+    } else if (preNumber === 11) {
+        var number = "Jack";
+    } else if (preNumber === 10) {
+        var number = "Ten";
+    } else if (preNumber === 9) {
+        var number = "Nine";
+    } else if (preNumber === 8) {
+        var number = "Eigth";
+    } else if (preNumber === 7) {
+        var number = "Seven";
+    } else if (preNumber === 6) {
+        var number = "Six";
+    } else if (preNumber === 5) {
+        var number = "Five";
+    } else if (preNumber === 4) {
+        var number = "Four";
+    } else if (preNumber === 3) {
+        var number = "Three";
+    } else if (preNumber === 2) {
+        var number = "Two";
+    } else if (preNumber === 1) {
+        var number = "Ace";
+    } else {
+        var number = "Invalid Number";
+        console.log("invalid rank");
+    }
+    console.log("this is preSuit", preSuit);
+    if (preSuit === 1) {
+        var suit = "Hearts";
+    } else if (preSuit === 2) {
+        var suit = "Diamonds";
+    } else if (preSuit === 3) {
+        var suit = "Spades";
+    } else if (preSuit === 4) {
+        var suit = "Clubs";
+    }
+    var answer = number+" of "+suit;
+    console.log(answer);
+    return answer
+}
+
+name(8);
 
 function precedes(cardA,cardB) { //-->false,true
 }

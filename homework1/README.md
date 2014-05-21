@@ -153,6 +153,8 @@ If your array argument holds values [a,b,c...z], as in
 Make sure to handle two special cases: length 0 (then return undefined) and length 1 (then return that single value).
 As before, you're not allowed to use &&.
 
+**[Solution](homework1-prob4.js)** (For parts a and b)
+
 **c)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
 
